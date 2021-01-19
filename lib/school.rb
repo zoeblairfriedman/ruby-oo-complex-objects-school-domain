@@ -1,1 +1,33 @@
-# code here!
+require 'pry'
+
+class School
+    attr_accessor :roster
+    attr_reader :name
+
+def initialize(name)
+    @name = name
+    @roster = {}
+end
+
+def add_student(name, grade)
+    if !@roster.include?(grade)
+       @roster[grade] = [name]
+    else
+        @roster[grade] << name
+    end
+       
+end
+
+def grade(grade)
+    @roster[grade]
+end
+
+def sort
+    @roster.values.each do |names| 
+        names.sort!
+    end    
+    @roster
+end
+
+
+end
